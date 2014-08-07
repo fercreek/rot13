@@ -9,8 +9,14 @@ def encoding():
 				cipher += chr((char) + c) 
 			elif c+char >= 123:
 				cipher += chr((char) - c)
+		elif 65 <= char <= 90:
+			if c+char < 90:
+				cipher += chr((char) + c) 
+			elif c+char >= 90:
+				cipher += chr((char) - c)		
 		else: 
 			cipher += chr(char)
 	return cipher
-
 print encoding()
+
+
