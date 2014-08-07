@@ -1,10 +1,18 @@
-#m = raw_input("Please, enter your text: ")
-c= 13
-m = raw_input("Enter your letter: ")
-m = ord(m)
-if 97 <= m <= 123:
-	if c+m < 123:
-		val = chr(m+c)
-	elif c+m>=123:	
-		val = chr(m-c)
-print val
+def encoding():
+	msg = raw_input("Enter your message: ")
+	c = 13
+	alpha = 26
+	cipher = ""
+	for char in msg:
+		#Si es minuscula...
+		if 97 <= ord(char) <= 123:
+			#Sino excedes el rango..
+			if c+ord(char) < 123:
+				cipher += chr(ord(char) + c) 
+			elif c+ord(char) >= 123:
+				cipher += chr(ord(char) - c)
+		else: 
+			#Sino eres una letra
+			cipher += char
+	return cipher
+print encoding()
