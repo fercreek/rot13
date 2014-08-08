@@ -1,14 +1,15 @@
-def encoding():
-	msg = raw_input("Enter your message: ")
-	c = 13
-	cipher = ""
-	for char in msg:
-		char = ord(char)
-		if 97 <= char <= 123:
-			cipher += chr((char) + c) if c+char < 123 else chr((char) - c)
-		elif 65 <= char <= 90:
-			cipher += chr((char) + c) if c+char < 90 else chr((char) - c)
-		else: 
-			cipher += chr(char)
-	return cipher
-print encoding()
+import sys
+def encoding(msg, c):
+	alpha = "abcdefghijklmnopqrstuvwxyz"
+	text = ""
+	for letter in msg:
+		if letter != " ":
+			pos = alpha.find(letter)
+			if pos == -1 :
+				text += ""
+			else:	
+				text += alpha[pos+c] if pos+c<=26 else alpha[pos+c-26]
+		else: 	
+			text+=""	
+	return text
+print encoding(sys.argv[1], 13)
